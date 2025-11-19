@@ -86,7 +86,7 @@ class Sanitizer {
       
       // IPv4 Addresses (but not in URLs)
       ipv4: {
-        regex: /(?<![\w.:/])(?:\d{1,3}\.){3}\d{1,3}(?![\w.:/])/g,
+        regex: /(?:(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)/g,
         replacement: () => '192.0.2.1'
       },
       
