@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Paste Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .demo-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .test-area {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+        
+        .test-area:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .example {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .example h3 {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        pre {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .feature {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .feature h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .feature ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .feature li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .button-group {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🔒 Safe Paste Demo</h1>
+        <p class="subtitle">Test the Chrome extension by pasting sensitive data below</p>
+    </header>
+
+    <div class="demo-section">
+        <h2>📝 Try It Out</h2>
+        <div class="info-box">
+            <strong>Instructions:</strong> With the Safe Paste extension installed and enabled, copy one of the examples below and paste it into the text area. The extension will automatically sanitize sensitive information.
+        </div>
+        
+        <textarea class="test-area" placeholder="Paste your content here to see Safe Paste in action..."></textarea>
+        
+        <div class="button-group">
+            <button onclick="clearTextArea()">Clear</button>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🧪 Test Examples</h2>
+        <p>Copy and paste these examples to test the extension:</p>
+        
+        <div class="example">
+            <h3>Example 1: Mixed Sensitive Data</h3>
+            <pre>Configuration Details:
+Email: john.doe@company.com
+API Key: AKIAIOSFODNN7EXAMPLE
+Database Password: mySecretPass123
+Credit Card: 4532-1234-5678-9012
+Phone: (555) 123-4567
+Server IP: 192.168.1.100
+Hash: 5d41402abc4b2a76b9719d911017c592</pre>
+        </div>
+
+        <div class="example">
+            <h3>Example 2: JSON Configuration</h3>
+            <pre>{
+  "service": "api",
+  "email": "admin@company.com",
+  "api_key": "sk_live_1234567890abcdef",
+  "password": "mySecretPass",
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "password": "dbSecret123"
+  }
+}</pre>
+        </div>
+
+        <div class="example">
+            <h3>Example 3: YAML Configuration</h3>
+            <pre>api_key: sk_live_1234567890
+email: user@example.com
+database:
+  host: localhost
+  port: 5432
+  password: secretpass123
+jwt_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</pre>
+        </div>
+
+        <div class="example">
+            <h3>Example 4: URL with Token</h3>
+            <pre>https://api.example.com/data?token=secret123abc&user=john</pre>
+        </div>
+
+        <div class="example">
+            <h3>Example 5: Private Key</h3>
+            <pre>-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA1234567890abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=
+-----END RSA PRIVATE KEY-----</pre>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>✨ Features</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>🔐 Security Credentials</h3>
+                <ul>
+                    <li>API Keys</li>
+                    <li>AWS Keys</li>
+                    <li>JWT Tokens</li>
+                    <li>Private Keys</li>
+                    <li>Certificates</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>🔢 Hashes</h3>
+                <ul>
+                    <li>MD5</li>
+                    <li>SHA-1</li>
+                    <li>SHA-256</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>👤 Personal Info</h3>
+                <ul>
+                    <li>Email Addresses</li>
+                    <li>Credit Cards</li>
+                    <li>SSN</li>
+                    <li>Phone Numbers</li>
+                </ul>
+            </div>
+            
+            <div class="feature">
+                <h3>🌐 Network</h3>
+                <ul>
+                    <li>IPv4 Addresses</li>
+                    <li>IPv6 Addresses</li>
+                    <li>URLs with Tokens</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>📖 How It Works</h2>
+        <div class="info-box">
+            <ol>
+                <li><strong>Intercepts Paste:</strong> Content script captures paste events across all websites</li>
+                <li><strong>Detects Format:</strong> Automatically identifies JSON, YAML, or plain text</li>
+                <li><strong>Pattern Matching:</strong> Uses regex to find sensitive data patterns</li>
+                <li><strong>Smart Replacement:</strong> Replaces with realistic dummy values</li>
+                <li><strong>Seamless Insert:</strong> Inserts sanitized content naturally</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🔒 Privacy & Security</h2>
+        <div class="warning-box">
+            <ul>
+                <li><strong>Local Processing:</strong> All sanitization happens locally in your browser</li>
+                <li><strong>No Data Storage:</strong> Nothing is saved or logged</li>
+                <li><strong>No Network Calls:</strong> No data sent to external servers</li>
+                <li><strong>Open Source:</strong> Full code available for audit</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function clearTextArea() {
+            document.querySelector('.test-area').value = '';
+        }
+        
+        // Add some visual feedback
+        const textarea = document.querySelector('.test-area');
+        textarea.addEventListener('paste', () => {
+            console.log('Paste event detected - Safe Paste should sanitize this!');
+        });
+    </script>
+</body>
+</html>
