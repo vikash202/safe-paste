@@ -365,7 +365,7 @@ class Sanitizer {
         let result = content;
         for (const item of this.customKeywords) {
             if (item.keyword && item.replacement !== undefined) {
-                // Create a case-insensitive regex that matches whole words
+                // Create a case-insensitive regex for replacement
                 const escapedKeyword = item.keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 const regex = new RegExp(escapedKeyword, 'gi');
                 result = result.replace(regex, item.replacement);
